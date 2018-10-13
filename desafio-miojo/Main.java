@@ -1,17 +1,27 @@
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		exibeTempoDePreparo(8, 26, 37);
+		final Scanner scanner = new Scanner(System.in);
+		while (true) {
+			System.out.println("Qual o tempo de preparo do miojo em minutos");
+			int tempoDePreparo = scanner.nextInt();
+			System.out.println("Qual o tempo de duração da ampulheta 1 em minutos");
+			int ampulheta1 = scanner.nextInt();
+			System.out.println("Qual o tempo de duração da ampulheta 2 em minutos");
+			int ampulheta2 = scanner.nextInt();
+			exibeTempoDePreparo(tempoDePreparo, ampulheta1, ampulheta2);
+		}
 	}
 
 	private static void exibeTempoDePreparo(int tempoDePreparo, int ampulheta1, int ampulheta2) {
 		int tempoMinimoDePreparo = calculaTempoMinimoDePreparo(tempoDePreparo, ampulheta1, ampulheta2);
 		if (tempoMinimoDePreparo == -1) {
-			System.out.printf("\nNão é possível cozinhar o miojo no tempo exato" + " com as ampulhetas disponíveis.\n");
+			System.out.println("Não é possível cozinhar o miojo no tempo exato com as ampulhetas disponíveis.");
 			return;
 		}
-		System.out.printf("\nTempo mínimo de preparo do miojo: %d minutos", tempoMinimoDePreparo);
+		System.out.printf("Tempo mínimo de preparo do miojo: %d minutos\n\n", tempoMinimoDePreparo);
 	}
 
 	/**
