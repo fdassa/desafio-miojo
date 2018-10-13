@@ -4,15 +4,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		final Scanner scanner = new Scanner(System.in);
-		while (true) {
-			System.out.println("Qual o tempo de preparo do miojo em minutos");
-			int tempoDePreparo = scanner.nextInt();
-			System.out.println("Qual o tempo de duração da ampulheta 1 em minutos");
-			int ampulheta1 = scanner.nextInt();
-			System.out.println("Qual o tempo de duração da ampulheta 2 em minutos");
-			int ampulheta2 = scanner.nextInt();
-			exibeTempoDePreparo(tempoDePreparo, ampulheta1, ampulheta2);
-		}
+		System.out.println("Qual o tempo de preparo do miojo em minutos");
+		int tempoDePreparo = scanner.nextInt();
+		System.out.println("Qual o tempo de duração da ampulheta 1 em minutos");
+		int ampulheta1 = scanner.nextInt();
+		System.out.println("Qual o tempo de duração da ampulheta 2 em minutos");
+		int ampulheta2 = scanner.nextInt();
+		exibeTempoDePreparo(tempoDePreparo, ampulheta1, ampulheta2);
 	}
 
 	private static void exibeTempoDePreparo(int tempoDePreparo, int ampulheta1, int ampulheta2) {
@@ -21,7 +19,7 @@ public class Main {
 			System.out.println("Não é possível cozinhar o miojo no tempo exato com as ampulhetas disponíveis.");
 			return;
 		}
-		System.out.printf("Tempo mínimo de preparo do miojo: %d minutos\n\n", tempoMinimoDePreparo);
+		System.out.printf("Tempo mínimo de preparo do miojo: %d minutos\n", tempoMinimoDePreparo);
 	}
 
 	/**
@@ -58,6 +56,15 @@ public class Main {
 		return -1;
 	}
 
+	/**
+	 * Avalia se o tempo atual se distanciou do tempo desejado tendo como base o
+	 * tempo anterior
+	 * 
+	 * @param tempoAtual
+	 * @param tempoAnterior
+	 * @param tempoDesejado
+	 * @return
+	 */
 	private static boolean tempoEstaSeDistanciandoDoDesejado(int tempoAtual, int tempoAnterior, int tempoDesejado) {
 		return Math.abs(tempoAtual - tempoDesejado) >= Math.abs(tempoAnterior - tempoDesejado);
 	}
